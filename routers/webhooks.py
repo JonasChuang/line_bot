@@ -38,6 +38,7 @@ async def callback(request: Request, x_line_signature: str = Header(None)):
 def message_text(event):
     print("!!!!!!!!!!!!!!!!!!!!!!")
     print(event)
+    print("收到:"+event.message.text)
     print("!!!!!!!!!!!!!!!!!!!!!!")
     line_bot_api.reply_message(
         event.reply_token,
