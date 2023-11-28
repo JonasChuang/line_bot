@@ -22,7 +22,7 @@ app.include_router(webhooks.router)
 
 
 #@app.get("/")
-app.api_route('/',methods=['GET','HEAD'])
+@app.api_route('/',methods=['GET','HEAD'])
 async def root():
     return {"message": "Hello World!"}
 
