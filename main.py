@@ -7,7 +7,7 @@
 #     load_dotenv()
 
 import uvicorn
-
+#from fastapi.testclient import TestClient
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
@@ -21,7 +21,8 @@ templates = Jinja2Templates(directory="templates")
 app.include_router(webhooks.router)
 
 
-@app.get("/")
+#@app.get("/")
+app.api_route('/',methods=['GET','HEAD'])
 async def root():
     return {"message": "Hello World!"}
 
@@ -29,6 +30,11 @@ async def root():
 @app.get("/liff", response_class=HTMLResponse)
 async def read_item(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
+
+#client=TestClient(app)
+
+#def test
 
 
 #if __name__ == "__main__":
